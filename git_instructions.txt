@@ -1,0 +1,4 @@
+git add "file"
+git commit -m "message about commit"
+git branch -M main
+git push -u origin main
