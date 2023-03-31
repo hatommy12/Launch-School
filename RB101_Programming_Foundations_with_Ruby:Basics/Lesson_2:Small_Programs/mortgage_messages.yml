@@ -1,0 +1,12 @@
+
+welcome: "Welcome to the mortgage calculator!!"
+loan_amount: "What is your loan amount?"
+invalid_loan_amount: "Invalid loan amount"
+apr: "What is your Annual Percentage Rate in %?"
+loan_duration: "What is your loan duration (years)?"
+invalid_number: "Please enter a valid number"
+zero_loan_duration: "Loan duration cannot be zero!"
+invalid_apr: 'Invalid APR %'
+invalid_duration: 'invalid duration'
+again?: "Would you like to calculate another loan? (y/n)"
+ending_message: "Thank you for using our mortgage calculator!"
