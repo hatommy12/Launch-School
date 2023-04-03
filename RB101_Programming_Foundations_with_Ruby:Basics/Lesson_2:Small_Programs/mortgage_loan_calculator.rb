@@ -74,8 +74,8 @@ end
 def format_number_with_commas(number)
   decimal = format('%.02f', number)[-3..] if float?(number)
   reversed_number = number.to_i.to_s.chars.reverse
-  reversed_array_with_comma = reversed_number.each_slice(3).map {|num| num.push(',')}
-  number_with_commas = reversed_array_with_comma.join.reverse[1..] + decimal
+  reversed_array = reversed_number.each_slice(3).map {|num| num.push(',')}
+  reversed_array.join.reverse[1..] + decimal
 end
 
 def display_summary(monthly_loan_duration, monthly_interest_rate, 
@@ -112,7 +112,7 @@ loop do
                                               monthly_loan_duration)
   system('clear')
   display_summary(monthly_loan_duration, monthly_interest_rate, monthly_payment,
-                  loan_amount)
+  loan_amount)
   break unless play_again?
 end
 
