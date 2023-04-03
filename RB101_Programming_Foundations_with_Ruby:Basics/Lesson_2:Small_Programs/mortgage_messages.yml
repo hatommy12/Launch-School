@@ -1,12 +1,13 @@
 
 welcome: "Welcome to the mortgage calculator!!"
 loan_amount: "What is your loan amount?"
-invalid_loan_amount: "Invalid loan amount"
+invalid_loan_amount: "Loan amount must be a positive number with no letters!"
 apr: "What is your Annual Percentage Rate in %?"
 loan_duration: "What is your loan duration (years)?"
 invalid_number: "Please enter a valid number"
-zero_loan_duration: "Loan duration cannot be zero!"
-invalid_apr: 'Invalid APR %'
-invalid_duration: 'invalid duration'
+no_letters_allowed: "No letters allowed; please use integers only"
+no_zero_loan: "Loan cannot be zero!"
+invalid_apr: 'APR must be a positive number with no letters!'
+invalid_duration: 'Loan duration must be a positive number with no letters!'
 again?: "Would you like to calculate another loan? (y/n)"
 ending_message: "Thank you for using our mortgage calculator!"
