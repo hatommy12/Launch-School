@@ -19,7 +19,7 @@ def check_input(input, invalid_message)
   elsif input.to_f.zero?
     prompt(MESSAGES['no_zero_loan'])
   elsif float?(input)
-    return input
+    input
   else
     prompt(MESSAGES[invalid_message])
   end
@@ -62,7 +62,7 @@ def calculate_monthly_interest_rate(apr)
 end
 
 def calculate_monthly_payment(loan_amount, monthly_interest_rate,
-                        monthly_loan_duration)
+                              monthly_loan_duration)
   if monthly_interest_rate.zero?
     loan_amount.to_f / monthly_loan_duration.to_f
   else
@@ -74,13 +74,13 @@ end
 def format_number_with_commas(number)
   decimal = format('%.02f', number)[-3..] if float?(number)
   reversed_number = number.to_i.to_s.chars.reverse
-  reversed_array = reversed_number.each_slice(3).map {|num| num.push(',')}
+  reversed_array = reversed_number.each_slice(3).map { |num| num.push(',') }
   reversed_array.join.reverse[1..] + decimal
 end
 
-def display_summary(monthly_loan_duration, monthly_interest_rate, 
+def display_summary(monthly_loan_duration, monthly_interest_rate,
                     monthly_payment, loan_amount)
-  paid_monthly_interest = ((monthly_payment * monthly_loan_duration) - 
+  paid_monthly_interest = ((monthly_payment * monthly_loan_duration) -
                           loan_amount.to_f) / monthly_loan_duration
   puts '------------------------------------------------------------------'
   prompt("Loan Summary:")
@@ -95,7 +95,7 @@ end
 def play_again?
   prompt(MESSAGES['again?'])
   answer = gets.chomp.downcase
-  /^y[e]?[as]?[h]?$/.match(answer)  
+  /^y[e]?[as]?[h]?$/.match(answer)
 end
 
 prompt(MESSAGES['welcome'])
@@ -108,11 +108,12 @@ loop do
 
   monthly_loan_duration = calculate_monthly_loan_duration(yearly_loan_duration)
   monthly_interest_rate = calculate_monthly_interest_rate(apr)
-  monthly_payment = calculate_monthly_payment(loan_amount, monthly_interest_rate,
+  monthly_payment = calculate_monthly_payment(loan_amount,
+                                              monthly_interest_rate,
                                               monthly_loan_duration)
   system('clear')
   display_summary(monthly_loan_duration, monthly_interest_rate, monthly_payment,
-  loan_amount)
+                  loan_amount)
   break unless play_again?
 end
 
